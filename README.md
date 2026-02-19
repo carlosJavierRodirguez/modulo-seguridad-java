@@ -43,3 +43,101 @@ Este proyecto fue generado utilizando **Spring Initializr**, con una configuraci
 3. Se descargará un archivo `.zip` con el proyecto base.
 4. Descomprime el archivo y ábrelo en tu IDE de preferencia (IntelliJ IDEA recomendado).
 5. A partir de este punto, el proyecto queda listo para comenzar el desarrollo del módulo de seguridad.
+
+## 📦 Estructura del Proyecto
+
+```text
+com.carlos.security.core
+│
+├── config/                          # Configuraciones
+│   ├── SecurityConfig.java
+│   ├── JwtConfig.java
+│   ├── CorsConfig.java
+│   └── OpenApiConfig.java
+│
+├── domain/                          # Capa de Dominio (Entidades y Lógica de Negocio)
+│   ├── model/
+│   │   ├── User.java
+│   │   ├── Role.java
+│   │   ├── Permission.java
+│   │   └── RefreshToken.java
+│   │
+│   ├── repository/                  # Interfaces de repositorio
+│   │   ├── UserRepository.java
+│   │   ├── RoleRepository.java
+│   │   └── RefreshTokenRepository.java
+│   │
+│   ├── exception/                   # Excepciones de dominio
+│   │   ├── UserNotFoundException.java
+│   │   ├── InvalidCredentialsException.java
+│   │   └── TokenExpiredException.java
+│   │
+│   └── valueobject/                 # Value Objects
+│       ├── Email.java
+│       └── Password.java
+│
+├── application/                     # Capa de Aplicación (Casos de Uso)
+│   ├── service/
+│   │   ├── AuthenticationService.java
+│   │   ├── UserService.java
+│   │   ├── RoleService.java
+│   │   └── TokenService.java
+│   │
+│   ├── dto/
+│   │   ├── request/
+│   │   │   ├── LoginRequest.java
+│   │   │   ├── RegisterRequest.java
+│   │   │   └── RefreshTokenRequest.java
+│   │   │
+│   │   └── response/
+│   │       ├── AuthResponse.java
+│   │       └── UserResponse.java
+│   │
+│   └── mapper/
+│       ├── UserMapper.java
+│       └── RoleMapper.java
+│
+├── infrastructure/                  # Capa de Infraestructura
+│   ├── persistence/
+│   │   ├── entity/
+│   │   │   ├── UserEntity.java
+│   │   │   ├── RoleEntity.java
+│   │   │   └── PermissionEntity.java
+│   │   │
+│   │   ├── repository/
+│   │   │   └── JpaUserRepository.java
+│   │   │
+│   │   └── adapter/
+│   │       └── UserRepositoryAdapter.java
+│   │
+│   ├── security/
+│   │   ├── jwt/
+│   │   │   ├── JwtTokenProvider.java
+│   │   │   ├── JwtAuthenticationFilter.java
+│   │   │   └── JwtAuthenticationEntryPoint.java
+│   │   │
+│   │   ├── UserDetailsServiceImpl.java
+│   │   └── PasswordEncoderConfig.java
+│   │
+│   └── external/                    # Servicios externos
+│       └── EmailService.java
+│
+├── presentation/                    # Capa de Presentación (API REST)
+│   ├── controller/
+│   │   ├── AuthController.java
+│   │   ├── UserController.java
+│   │   └── RoleController.java
+│   │
+│   ├── advice/
+│   │   └── GlobalExceptionHandler.java
+│   │
+│   └── validation/
+│       └── CustomValidators.java
+│
+└── shared/                          # Utilidades compartidas
+    ├── constants/
+    │   └── SecurityConstants.java
+    │
+    └── util/
+        └── ValidationUtils.java
+```
