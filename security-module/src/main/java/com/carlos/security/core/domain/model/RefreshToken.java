@@ -11,7 +11,7 @@ import java.util.UUID;
 @Getter
 @SuperBuilder
 @EqualsAndHashCode(of = "id")
-public class RefreshToken extends AuditableEntity{
+public class RefreshToken extends AuditableEntity {
 
     private final UUID id;
     private final String token;
