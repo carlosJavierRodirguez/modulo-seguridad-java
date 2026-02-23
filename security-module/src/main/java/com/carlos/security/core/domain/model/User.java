@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @SuperBuilder
 @Getter
 @EqualsAndHashCode(of = "id")
-public class User extends AuditableEntity{
+public class User extends Auditable {
 
     private final UUID id;
     private final String username;

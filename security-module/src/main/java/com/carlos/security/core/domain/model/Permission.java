@@ -1,17 +1,15 @@
 package com.carlos.security.core.domain.model;
 
-import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
 @SuperBuilder
 @EqualsAndHashCode(of = "id")
-public class Permission extends AuditableEntity {
+public class Permission extends Auditable {
 
     private final UUID id;
     private final String name;

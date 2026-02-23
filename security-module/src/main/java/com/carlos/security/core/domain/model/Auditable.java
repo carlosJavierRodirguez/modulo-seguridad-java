@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @SuperBuilder
-public abstract class AuditableEntity {
+public abstract class Auditable {
 
     protected final LocalDateTime createdAt;
     protected final LocalDateTime updatedAt;

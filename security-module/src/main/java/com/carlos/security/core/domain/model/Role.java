@@ -5,7 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
-import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
@@ -13,7 +12,7 @@ import java.util.UUID;
 @Getter
 @SuperBuilder
 @EqualsAndHashCode(of = "id")
-public class Role extends AuditableEntity {
+public class Role extends Auditable {
 
     private final UUID id;
     private final String name;
