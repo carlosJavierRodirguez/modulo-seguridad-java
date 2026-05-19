@@ -1,10 +1,12 @@
 package com.carlos.security.core.domain.repository;
 
 import com.carlos.security.core.domain.model.User;
+import com.carlos.security.core.domain.valueobject.Email;
 import com.carlos.security.core.domain.valueobject.Page;
 import com.carlos.security.core.domain.valueobject.PageRequest;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface UserRepository {
@@ -79,4 +81,13 @@ public interface UserRepository {
 
     User save(User user);
 
+    Optional<User> findById(UUID id);
+
+    Optional<User> findByUsername(String username);
+
+    Optional<User> findByEmail(Email email);
+
+    boolean existsByUsername(String username);
+
+    boolean existsByEmail(Email email);
 }
