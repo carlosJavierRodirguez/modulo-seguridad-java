@@ -75,7 +75,7 @@ public interface UserRepository {
      */
     List<User> findByRoleNameNoPagination(String roleName);
 
-    void deleteById(UUID id);
+    User deleteById(UUID id);
 
     long count();
 

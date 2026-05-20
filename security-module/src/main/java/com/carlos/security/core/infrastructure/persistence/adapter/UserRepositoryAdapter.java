@@ -48,8 +48,9 @@ public class UserRepositoryAdapter implements UserRepository {
     }
 
     @Override
-    public void deleteById(UUID id) {
+    public User deleteById(UUID id) {
         jpaRepository.deleteById(id);
+        return null;
     }
 
     @Override
