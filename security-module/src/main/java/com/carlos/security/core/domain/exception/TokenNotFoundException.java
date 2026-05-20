@@ -1,7 +1,9 @@
 package com.carlos.security.core.domain.exception;
 
 public class TokenNotFoundException extends RuntimeException {
-  public TokenNotFoundException(String message) {
-    super(message);
-  }
+    private static final String DEFAULT_MESSAGE = "Token no encontrado";
+
+    public TokenNotFoundException() {
+        super(DEFAULT_MESSAGE);
+    }
 }
