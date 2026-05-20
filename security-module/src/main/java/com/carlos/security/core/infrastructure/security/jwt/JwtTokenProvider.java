@@ -7,6 +7,7 @@ import com.nimbusds.jose.jwk.OctetSequenceKey;
 import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
 import com.nimbusds.jose.jwk.source.JWKSource;
 import com.nimbusds.jose.proc.SecurityContext;
+import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.stereotype.Component;
 
@@ -42,7 +43,8 @@ public class JwtTokenProvider {
 
         JwtClaimsSet claims = JwtClaimsSet.builder().subject(username).issuedAt(now).expiresAt(now.plusMillis(jwtConfig.getAccessTokenExpiration())).claim("roles", roles).build();
 
-        return encoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+        JwsHeader header = JwsHeader.with(MacAlgorithm.HS256).build();
+        return encoder.encode(JwtEncoderParameters.from(header, claims)).getTokenValue();
     }
 
     public String generateRefreshToken() {

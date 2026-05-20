@@ -2,6 +2,7 @@ package com.carlos.security.core.infrastructure.security;
 
 import com.carlos.security.core.domain.model.User;
 import com.carlos.security.core.domain.repository.UserRepository;
+import com.carlos.security.core.domain.valueobject.Email;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -20,9 +21,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     private final UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        User user = userRepository.findByEmail(Email.of(email))
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + email));
 
         Set<GrantedAuthority> authorities = new HashSet<>();
 
