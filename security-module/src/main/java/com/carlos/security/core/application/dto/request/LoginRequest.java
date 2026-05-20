@@ -2,21 +2,21 @@ package com.carlos.security.core.application.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
+import lombok.NoArgsConstructor;
 
 @Getter
-@Setter
+@NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AuthenticationService {
+public class LoginRequest {
+
+    @NotBlank
     @Email
     String email;
 
     @NotBlank
     String password;
-
 }
