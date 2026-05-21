@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: security-module
+
+  datasource:
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/modulo_seguridad_java
+    password: 123456
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  secret: "360de1667086bfd038f9cd2c0b60e87db3354898db99ea1bd0b1a01013711827"
+  access-token-expiration: 900000
+  refresh-token-expiration: 604800000
