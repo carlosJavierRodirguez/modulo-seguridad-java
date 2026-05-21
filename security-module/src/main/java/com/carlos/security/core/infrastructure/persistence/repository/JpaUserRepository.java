@@ -1,5 +1,6 @@
 package com.carlos.security.core.infrastructure.persistence.repository;
 
+import com.carlos.security.core.domain.valueobject.Page;
 import com.carlos.security.core.infrastructure.persistence.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -54,11 +55,18 @@ public interface JpaUserRepository extends JpaRepository<UserEntity, UUID> {
     boolean existsByEmail(String email);
 
     /**
+     * Verifica si existe un usuario con ese numero de telefono
+     */
+    boolean existsByPhoneNumber(String phoneNumber);
+
+    /**
      * Busca usuarios por estado enabled
      * <p>
      * Spring Data genera: SELECT * FROM users WHERE enabled = ?
      */
     List<UserEntity> findByEnabled(boolean enabled);
+
+    Optional<UserEntity> findByPhoneNumber(String phoneNumber);
 
     // ========== Queries Personalizadas con JPQL ==========
 

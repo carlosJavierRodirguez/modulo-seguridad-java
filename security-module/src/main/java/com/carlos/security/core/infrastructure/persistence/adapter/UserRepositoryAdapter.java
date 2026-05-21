@@ -67,6 +67,12 @@ public class UserRepositoryAdapter implements UserRepository {
     }
 
     @Override
+    public Optional<User> findByPhoneNumber(String phoneNumber) {
+        return jpaRepository.findByPhoneNumber(phoneNumber)
+                .map(mapper::toDomain);
+    }
+
+    @Override
     public Optional<User> findByEmail(Email email) {
         // Email es Value Object, extraer el String
         return jpaRepository.findByEmail(email.getValue())
@@ -81,6 +87,11 @@ public class UserRepositoryAdapter implements UserRepository {
     @Override
     public boolean existsByEmail(Email email) {
         return jpaRepository.existsByEmail(email.getValue());
+    }
+
+    @Override
+    public boolean existsByPhoneNumber(String phoneNumber) {
+        return jpaRepository.existsByPhoneNumber(phoneNumber);
     }
 
 // ========== Búsquedas por rol ==========

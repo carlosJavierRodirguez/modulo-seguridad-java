@@ -17,7 +17,6 @@ import java.util.UUID;
                 @Index(name = "idx_email", columnList = "email")
         },
         uniqueConstraints = {
-                @UniqueConstraint(name = "uk_username", columnNames = "username"),
                 @UniqueConstraint(name = "uk_email", columnNames = "email")
         }
 )
@@ -33,7 +32,7 @@ public class UserEntity extends AuditableEntity {
     @Column(name = "id", updatable = false, nullable = false)
     private UUID id;
 
-    @Column(name = "username", unique = true, nullable = false, length = 50)
+    @Column(name = "username", nullable = false, length = 50)
     private String username;
 
     @Column(name = "email", unique = true, nullable = false, length = 100)
@@ -48,7 +47,7 @@ public class UserEntity extends AuditableEntity {
     @Column(name = "last_name", length = 100)
     private String lastName;
 
-    @Column(name = "phone_number", length = 20)
+    @Column(name = "phone_number", unique = true, length = 20)
     private String phoneNumber;
 
     /**
