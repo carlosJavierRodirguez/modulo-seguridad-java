@@ -85,7 +85,11 @@ public interface UserRepository {
 
     Optional<User> findByUsername(String username);
 
+    Optional<User> findByPhoneNumber(String phoneNumber);
+
     Optional<User> findByEmail(Email email);
+
+    boolean existsByPhoneNumber(String phoneNumber);
 
     boolean existsByUsername(String username);
 
