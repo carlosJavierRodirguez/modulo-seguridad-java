@@ -70,9 +70,9 @@ public class AuthenticationService {
             throw new UserAlreadyExistsException("email", request.getEmail());
         }
 
-        // Verificar que el username no esté en uso
-        if (userRepository.existsByUsername(request.getUsername())) {
-            throw new UserAlreadyExistsException("username", request.getUsername());
+        // Verificar que el telefono celular no esté en uso
+        if (userRepository.existsByPhoneNumber(request.getPhoneNumber())) {
+            throw new UserAlreadyExistsException("phoneNumber", request.getPhoneNumber());
         }
 
         // Hashear la contraseña con BCrypt antes de guardarla — nunca se guarda en texto plano
