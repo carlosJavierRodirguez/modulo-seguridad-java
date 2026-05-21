@@ -33,8 +33,8 @@ public class TokenService {
         // Extraer roles activos del usuario para incluirlos en el access token
         List<String> roles = new ArrayList<>(user.getRoleNames());
 
-        // Generar el access token JWT firmado con las claims del usuario
-        String accessToken = jwtTokenProvider.generateAccessToken(user.getUsername(), roles);
+        // El subject del JWT debe ser el email porque UserDetailsServiceImpl busca por email
+        String accessToken = jwtTokenProvider.generateAccessToken(user.getEmail().getValue(), roles);
 
         // Generar el refresh token como UUID aleatorio (no es JWT, se guarda en BD)
         String refreshTokenValue = jwtTokenProvider.generateRefreshToken();
