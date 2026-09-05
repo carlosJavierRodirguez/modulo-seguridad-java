@@ -44,10 +44,9 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 
                 // Define qué rutas son públicas y cuáles requieren token
-                // PUBLIC_ENDPOINTS: /auth/login, /auth/register, /auth/refresh
-                // Cualquier otra ruta exige que el usuario esté autenticado
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(SecurityConstants.PUBLIC_ENDPOINTS).permitAll()
+                        .requestMatchers(SecurityConstants.SWAGGER_ENDPOINTS).permitAll()
                         .anyRequest().authenticated()
                 )
 

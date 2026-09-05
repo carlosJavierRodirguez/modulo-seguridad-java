@@ -16,6 +16,14 @@ public final class SecurityConstants {
     public static final String USERS_BASE_PATH = "/api/v1/users";
     public static final String ROLES_BASE_PATH = "/api/v1/roles";
 
+    // Swagger UI endpoints (no requieren token)
+    public static final String[] SWAGGER_ENDPOINTS = {
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/v3/api-docs",
+    };
+
     // Public endpoints (no requieren token)
     public static final String[] PUBLIC_ENDPOINTS = {
             AUTH_BASE_PATH + "/login",
